@@ -1,7 +1,8 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../bower_components/polymer/lib/elements/dom-if.html">
 
-<dom-module id="inbox-list">
+
+<dom-module id="affiliates-list">
   <template>
     <dom-repeat items="[[items]]">
       <template>
@@ -10,10 +11,10 @@
     </dom-repeat>
   </template>
   <script>
-    class inboxList extends Polymer.Element {
+    class AffiliatesList extends Polymer.Element {
 
       static get is() {
-        return 'inbox-list';
+        return 'affiliates-list';
       }
 
       static get config() {
@@ -26,7 +27,7 @@
         }
       }
     }
-    customElements.define(inboxList.is, inboxList);
+    customElements.define(AffiliatesList.is, AffiliatesList);
 
   </script>
 </dom-module>

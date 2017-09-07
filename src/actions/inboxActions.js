@@ -4,7 +4,7 @@ class inboxActions {
       dispatch({
         type: 'FETCH_MESSAGES_LOADING'
       });
-      return window.fetch('http://localhost:1337/messages')
+      return window.fetch('http://localhost:1337/api/affiliates')
         .then((response) => {
           response.json().then(data => {
             dispatch({
