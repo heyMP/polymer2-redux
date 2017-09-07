@@ -1,7 +1,6 @@
 const affiliateInitialState = {
   items: [],
-  loading: false,
-  selectedAffiliate: null
+  loading: false
 };
 
 function affiliateReducer(state, action) {
@@ -21,11 +20,27 @@ function affiliateReducer(state, action) {
       return Object.assign({}, state,
         {
           loading: false,
-          items: action.items,
-          totalUnread: action.items.reduce((prev, current) => {
-            return prev - current.read;
-          }, action.items.length)
+          items: action.payload,
+        }
+      );
 
+    case 'FETCH_AFFILIATE_LOADING':
+      return Object.assign({}, state,
+        {
+          loading: true,
+        }
+      );
+
+    case 'FETCH_AFFILIATE_SUCCESS':
+      return Object.assign({}, state,
+        {
+          loading: false,
+          items: state.items.map((item) => {
+            if (item === action.payload.id) {
+              return action.payload;
+            }
+            else { return item };
+          })
         }
       );
 
