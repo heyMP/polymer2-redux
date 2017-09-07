@@ -2,16 +2,12 @@
 
 <dom-module id="app-container">
   <template>
-    <h1>Inbox</h1>
     <dom-if if="[[loading]]">
       <template>
         Loading...
       </template>
     </dom-if>
-
-    <inbox-container></inbox-container>
-    <status-container></status-container>
-
+sdf [[loading]]
   </template>
   <script>
     class appContainer extends Polymer.Element {
@@ -23,15 +19,13 @@
       ready() {
         super.ready();
 
-        //Subcribe to the loading state
         this.unsubscribe = store.subscribe(() => {
-            this.loading = store.getState().inboxReducer.loading;
+            this.loading = store.getState().affiliateReducer.loading;
           }
         );
 
         //Fetch the messages
-        inboxActions.fetchMessages();
-
+        affiliateActions.fetchAffiliates();
       }
 
       disconnectedCallback() {

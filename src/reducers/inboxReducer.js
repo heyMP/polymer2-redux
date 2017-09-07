@@ -4,7 +4,6 @@ const initialState = {
   selectedMessage: null
 };
 
-
 function inboxReducer(state, action) {
   if (state === undefined) {
     return initialState;

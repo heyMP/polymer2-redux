@@ -5,6 +5,7 @@ const store = Redux.createStore(createReducer(), composeEnhancers(
 
 function createReducer() {
     return Redux.combineReducers({
-        inboxReducer: inboxReducer
+        inboxReducer: inboxReducer,
+        affiliateReducer: affiliateReducer
     });
 }
