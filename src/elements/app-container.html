@@ -1,13 +1,11 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="affiliates-list.html">
 
 <dom-module id="app-container">
   <template>
-    <dom-if if="[[loading]]">
-      <template>
-        Loading...
-      </template>
-    </dom-if>
-sdf [[loading]]
+
+    <affiliates-list></affiliates-list>
+
   </template>
   <script>
     class appContainer extends Polymer.Element {
@@ -26,7 +24,6 @@ sdf [[loading]]
 
         // Fetch the messages
         affiliateActions.fetchAffiliates();
-        affiliateActions.fetchAffiliate('15');
       }
 
       disconnectedCallback() {

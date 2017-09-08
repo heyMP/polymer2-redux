@@ -1,0 +1,28 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="affiliate-item">
+  <template>
+    [[firstname]]
+  </template>
+  <script>
+    class AffiliateItem extends Polymer.Element {
+
+      static get is() {
+        return 'affiliate-item';
+      }
+
+      static get config() {
+        return {
+          properties: {
+            firstName: {
+              type: String,
+              value: 'asdf'
+            }
+          }
+        }
+      }
+    }
+    customElements.define(AffiliateItem.is, AffiliateItem);
+  </script>
+</dom-module>
+

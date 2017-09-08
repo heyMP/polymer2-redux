@@ -1,12 +1,13 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../../bower_components/polymer/lib/elements/dom-if.html">
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="affiliate-item.html">
 
 
 <dom-module id="affiliates-list">
   <template>
     <dom-repeat items="[[items]]">
       <template>
-        <inbox-item item="[[item]]"></inbox-item>
+        <affiliate-item first-name="asdfasdf"></affiliate-item>
       </template>
     </dom-repeat>
   </template>
@@ -25,6 +26,23 @@
             }
           }
         }
+      }
+
+      ready() {
+        super.ready();
+        // get affiliates from store
+        this.unsubscribe = store.subscribe(() => {
+            this.items = store.getState().affiliateReducer.items;
+          }
+        );
+        // Fetch the messages
+        affiliateActions.fetchAffiliates();
+      }
+
+      disconnectedCallback() {
+        //Cleanup subscriptions
+        super.disconnectedCallback();
+        this.unsubscribe();
       }
     }
     customElements.define(AffiliatesList.is, AffiliatesList);
